@@ -1,0 +1,28 @@
+[alias]
+  l = log --oneline --decorate --graph
+  ll = log --decorate --graph
+  gst = status
+
+[core]
+  whitespace = trailing-space,space-before-tab
+  editor = mvim -f
+  autocrlf = false
+
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  ui = true
+
+[apply]
+  whitespace = fix
+
+[push]
+  default = current
+
+[branch]
+  autosetuprebase = always
+
+[rerere]
+  enabled = true
