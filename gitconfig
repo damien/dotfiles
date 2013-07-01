@@ -1,28 +1,26 @@
 [alias]
   l = log --oneline --decorate --graph
   ll = log --decorate --graph
+  cl = log --format='%ad %C(blue)%h %C(reset)- %C(yellow)%ae%C(reset): %s' --date=local
   gst = status
-
-[core]
-  whitespace = trailing-space,space-before-tab
-  editor = mvim -f
-  autocrlf = false
-
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
 [color]
   status = auto
   diff = auto
   branch = auto
   interactive = auto
   ui = true
-
+[core]
+  whitespace = trailing-space,space-before-tab
+  editor = subl -w
+  autocrlf = false
 [apply]
   whitespace = fix
-
 [push]
   default = current
-
 [branch]
   autosetuprebase = always
-
 [rerere]
   enabled = true
+[difftool]
+  prompt = false
