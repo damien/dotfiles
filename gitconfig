@@ -4,23 +4,42 @@
   cl = log --format='%ad %C(blue)%h %C(reset)- %C(yellow)%ae%C(reset): %s' --date=local
   gst = status
   ignored = !git ls-files -v | grep "^[[:lower:]]"
+
+[core]
+  whitespace = trailing-space,space-before-tab
+  editor = subl -w
+  autocrlf = false
+
 [color]
   status = auto
   diff = auto
   branch = auto
   interactive = auto
   ui = true
-[core]
-  whitespace = trailing-space,space-before-tab
-  editor = subl -w
-  autocrlf = false
+
 [apply]
   whitespace = fix
+
 [push]
   default = current
+
 [branch]
   autosetuprebase = always
+
 [rerere]
   enabled = true
+
+[diff]
+  tool = Kaleidoscope
 [difftool]
   prompt = false
+[difftool "Kaleidoscope"]
+  cmd = "ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+  tool = Kaleidoscope
+[mergetool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = "ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot"
+  trustExitCode = true
